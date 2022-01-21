@@ -869,8 +869,17 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			reply(`Succses kick target!`)
 break
 				case 'metaldark':
-				if (!args) return reply(from, `Penggunaan ${prefix}galaxy teks`, mek)
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}metaldark teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metaldark?text=${args}&apikey=Alphabot`)
+				break
+
+				case 'glitch':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!arg) return reply(from, `Penggunaan ${prefix}glitch teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/glitch2?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break				 
 //owner
 case 'bc': case 'broadcast':
