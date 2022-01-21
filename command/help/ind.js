@@ -16,14 +16,14 @@ exports.regis = () =>{
 exports.daftar = (sender, pushname, time, serialUser, totalUser) =>{
 	return` *REGISTRATION SUCCEED*
 
-_• Nama : _${pushname}_
-_• Nomor : _${sender.split("@")[0]}_
-_• Waktu : _${time}_
-_• Serial : _${serialUser}_
-_• Total User : _${totalUser.length}_
+ • Nama : _${pushname}_
+ • Nomor : _${sender.split("@")[0]}_
+ • Waktu : _${time}_
+ • Serial : _${serialUser}_
+ • Total User : _${totalUser.length}_
 
 *Thanks, already registered, now type .menu to view
-bot features.*
+bot features*
 `
 	}
 exports.owner = (botname) =>{
@@ -100,7 +100,23 @@ exports.menu = (prefix, salam, pushname) =>{
  _• ${prefix}nuliskanan [text]_
  _• ${prefix}foliokiri [text]_
  _• ${prefix}foliokanan [text]_
-
+ 
+ *Maker*
+ _• ${prefix}metaldark_
+ _• ${prefix}greenneon_
+ _• ${prefix}neon_
+ _• ${prefix}spalking_
+ _• ${prefix}holographic_
+ _• ${prefix}blackpink_ 
+ _• ${prefix}glitch_ 
+ _• ${prefix}carbon_
+ _• ${prefix}bread_ 
+ _• ${prefix}ninjalogo_
+ _• ${prefix}dropwater_
+ _• ${prefix}marble_
+ _• ${prefix}scifi_ 
+ _• ${prefix}blackmetal_      
+         
  *Game*
  _• ${prefix}tebakgambar_
 
@@ -111,16 +127,16 @@ exports.menu = (prefix, salam, pushname) =>{
  *Owner*
  _• ${prefix}broadcast [text]_
  _• ${prefix}leave_
- _• >
- _• $
- _•  =>
+  • >
+  • $
+  •  =>
 
  *Group*
  _• ${prefix}antilink 1 / 0_
  _• ${prefix}hidetag [text]_
  _• ${prefix}linkgrup_
  _• ${prefix}tagall_
- _• ${prefix}kick @tag
+ _• ${prefix}kick @tag_
  _• ${prefix}setdesc [text]_ 
  _• ${prefix}setname [text]_ 
 
