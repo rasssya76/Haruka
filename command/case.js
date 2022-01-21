@@ -868,6 +868,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			await haruka.groupRemove(from, [kickya])
 			reply(`Succses kick target!`)
 break
+//maker
 				case 'metaldark':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
@@ -878,9 +879,85 @@ break
 				case 'glitch':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
-				if (!arg) return reply(from, `Penggunaan ${prefix}glitch teks`, ftroli)
+				if (!arg) return reply(from, `Penggunaan ${prefix}glitch teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/glitch2?text=${arg}&text2=${arg}&apikey=Alphabot`)
-				break				 
+				break
+
+				case 'blackpink':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}blackpink teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/blackpink?text=${args}&apikey=Alphabot`)
+				break
+				case 'holographic':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}holographic teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/holographic?text=${args}&apikey=Alphabot`)
+				break
+				case 'ninjalogo':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!arg) return reply(from, `Penggunaan ${prefix}ninjalogo teks1 & teks2`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/ninja?text=${arg}&text2=${arg}&apikey=Alphabot`)
+				break
+				case 'bread':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}bread teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/bread?text=${args}&apikey=Alphabot`)
+				break
+				case 'carbon':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}carbon teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/carbon?text=${args}&apikey=Alphabot`)
+				break
+				case 'blackmetal':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}blackmetal teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metalb2?text=${args}&apikey=Alphabot`)
+				break
+
+				case 'scifi':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!arg) return reply(from, `Penggunaan ${prefix}scifi teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/scifi?text=${args}&apikey=Alphabot`)
+				break
+
+				case 'marble':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}marble teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/marble?text=${args}&apikey=Alphabot`)
+				break
+				case 'dropwater':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}dropwater teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/dropwater?text=${args}&apikey=Alphabot`)
+				break
+				case 'greenneon':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!arg) return reply(from, `Penggunaan ${prefix}greenneon teks1 & teks2`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/gneon?text=${args}&apikey=Alphabot`)
+				break
+				case 'neon':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}neon teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/neon2?text=${args}&apikey=Alphabot`)
+				break
+				case 'spalking':
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				reply(lang.wait())
+				if (!args) return reply(from, `Penggunaan ${prefix}spalking teks`, ftroli)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/sparkling5?text=${args}&apikey=Alphabot`)
+				break
+								 
 //owner
 case 'bc': case 'broadcast':
 			if (!isOwner) return reply(lang.owner(botname))
