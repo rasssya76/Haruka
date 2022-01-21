@@ -868,27 +868,10 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			await haruka.groupRemove(from, [kickya])
 			reply(`Succses kick target!`)
 break
-//make
-case 'matrix':
-				if (!args) return reply(from, `Penggunaan ${prefix}matrix teks`, ftroli)
-				sendMediaURL(from, `https://api.dapuhy.ga/api/textpro/matrixstyle?text=${args}&apikey=RamaGans`)
-				break
-				case 'galaxy':
-				if (!args) return reply(from, `Penggunaan ${prefix}galaxy teks`, ftroli)
-				sendMediaURL(from, `https://api.dapuhy.ga/api/ephoto/galaxy?text=${args}&apikey=RamaGans`)
-				break
-				case 'skeleton':
-				if (!args) return reply(from, `Penggunaan ${prefix}skeleton teks`, ftroli)
-				sendMediaURL(from, `https://api.dapuhy.ga/api/textpro/skeleton?text=${args}&apikey=RamaGans`)
-				break
-				case '3dstone':
-				if (!args) return reply(from, `Penggunaan ${prefix}3dstone teks`, ftroli)
-				sendMediaURL(from, `https://api.dapuhy.ga/api/textpro/3dstone?text=${args}&apikey=RamaGans`)
-				break
-				case 'thunder':
-				if (!args) return reply(from, `Penggunaan ${prefix}thunder teks`, ftroli)
-				sendMediaURL(from, `https://api.dapuhy.ga/api/textpro/thunder?text=${args}&apikey=RamaGans`)
-				break
+				case 'metaldark':
+				if (!args) return reply(from, `Penggunaan ${prefix}galaxy teks`, mek)
+				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metaldark?text=${args}&apikey=Alphabot`)
+				break				 
 //owner
 case 'bc': case 'broadcast':
 			if (!isOwner) return reply(lang.owner(botname))
