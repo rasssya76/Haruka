@@ -5,124 +5,124 @@ Sisa limit : ${prem ? '1000' : `${limitCounts}`}
 `
 }
 exports.limitend = (pushname) => {
-	return`Maaf ${pushname} limit hari ini telah habis\nlimit di reset setiap jam 24:00`
+	return`Sorry ${pushname} Your limit has run out, *please wait until 24:00* so you can use the bot again!`
 }
 exports.noregis = (pushname) =>{
-	return` 🙅‍♀️ Halo ${pushname} lu belum daftar. Ketik .daftar dulu`
+	return` Hello ${pushname} You are not registered, please type .register`
 	}
 exports.regis = () =>{
-	return` Lu udah daftar 😒`
+	return`*REJECT* | You are already registered`
 	}
 exports.daftar = (sender, pushname, time, serialUser, totalUser) =>{
-	return` *PENDAFTARAN BERHASIL*
+	return` *REGISTRATION SUCCEED*
 
-• Nama : ${pushname}
-• Nomor : ${sender.split("@")[0]}
-• Waktu : ${time}
-• Serial : ${serialUser}
-• Total User : ${totalUser.length}
+_• Nama : _${pushname}_
+_• Nomor : _${sender.split("@")[0]}_
+_• Waktu : _${time}_
+_• Serial : _${serialUser}_
+_• Total User : _${totalUser.length}_
 
-Thanks yak udah daftar, sekarang ketik .menu untuk melihat 
-fitur bot.
+*Thanks, already registered, now type .menu to view
+bot features.*
 `
 	}
 exports.owner = (botname) =>{
-	return` 🙅‍♀️ Command khusus owner ${botname}`
+	return`*REJECT* | Only Owner ${botname}`
 	}
 exports.admin = (groupName) =>{
-	return`🙅‍♀️ Command khusus admin ${groupName}`
+	return`*REJECT* | This command Only Groups admin ${groupName}`
 	}
 exports.adminB = () =>{
-	return`⚠️ Bot bukan admin grup`
+	return`*REJECT* | Bot not admin!`
 	}
 exports.err = () =>{
-	return`⚠️ Fitur ini sedang eror !`
+	return`*REJECT* | This feature is in error!`
 	}
 exports.group = () =>{
-	return`🙅‍♀️ Command khusus di dalam group`
+	return`*REJECT* | This command Only Groups admin `
 	}
 
 exports.wait = () =>{
-	return`⏳ Sedang di proses ~`
+	return`📩 𝑫𝒂𝒕𝒂 𝑰𝒏 𝑷𝒓𝒐𝒄𝒆𝒔𝒔, 𝑷𝒍𝒆𝒂𝒔𝒆 𝑾𝒂𝒊𝒕 𝑨 𝑴𝒊𝒏𝒖𝒕𝒆`
 	}
 exports.ok = () =>{
-	return` ✅ Oke done ~`
+	return`here`
 	}
 exports.welcome = () =>{
-	return`Jangan Lupa Intro Ya~
-⌯ָ   ֙Nama :
-⌯ָ   ֙Umur :
-⌯ָ   ֙Kelamin :
-⌯ָ   ֙Askot :
-╰─ ᝬ _Patuhi Rules Group Ya_  >_<`
+	return`*Dont forget the intro*
+    Nama :
+    Umur :
+    Kelamin :
+    Askot :
+
+ *Read the description of the Group Yes* >_<`
       }
 exports.leave = () =>{
 	return`
-│
-╰─ ᝬ _Balik Lagi Wajib Donasi Ya_ >_<`
+ _Back again should donation_ >_<`
 }
 exports.menu = (prefix, salam, pushname) =>{
-	return`Hi ${pushname}, selamat ${salam}
+	return`Hi ${pushname}, safe ${salam}
 
-╭─⬣ *List Menu*
-│ • ${prefix}menu
-│ • ${prefix}help
-│ • ${prefix}haruka
-│
-├ *Download*
-│ • ${prefix}play [query]
-│ • ${prefix}song [judul lagu]
-│ • ${prefix}pinterest [query]
-│ • ${prefix}ytmp3 [url]
-│ • ${prefix}ytmp4 [url]
-│ • ${prefix}tiktok [url]
-│ • ${prefix}tiktoknowm [url]
-│ • ${prefix}tiktokwm [url]
-│ • ${prefix}tiktokaudio [url]
-│ • ${prefix}soundcloud [url]
-│ • ${prefix}telesticker [url]
-│
-├ *Convert*
-│ • ${prefix}stiker [video/image]
-│ • ${prefix}semoji 😎
-│ • ${prefix}smeme [text]
-│ • ${prefix}memegen [text|text2]
-│ • ${prefix}fast [video/vn]
-│ • ${prefix}tupai [video/vn]
-│ • ${prefix}vibra [video/vn]
-│ • ${prefix}robot [video/vn]
-│ • ${prefix}slow [video/vn]
-│ • ${prefix}bass [video/vn]
-│ • ${prefix}nightcore [video/vn]
-│
-├ *Education*
-│ • ${prefix}nuliskiri [text]
-│ • ${prefix}nuliskanan [text]
-│ • ${prefix}foliokiri [text]
-│ • ${prefix}foliokanan [text]
-│
-├ *Game*
-│ • ${prefix}tebakgambar 
-│
-├ *Info*
-│ • ${prefix}owner
-│ • ${prefix}daftar
-│
-├ *Owner*
-│ • ${prefix}broadcast [text]
-│ • ${prefix}leave
-│ • >
-│ • $
-│ •  => 
-│
-├ *Group*
-│ • ${prefix}antilink 1 / 0
-│ • ${prefix}hidetag [text]
-│ • ${prefix}linkgrup
-│ • ${prefix}tagall
-│ • ${prefix}kick @tag
-│ • ${prefix}setdesc [text] 
-│ • ${prefix}setname [text] 
-╰─⬣
+ *Play Menu*
+ _• ${prefix}menu_
+ _• ${prefix}help_
+ _• ${prefix}Bot_
+
+ *Download*
+ _• ${prefix}play [query]_
+ _• ${prefix}song [judul lagu]_
+ _• ${prefix}pinterest [query]_
+ _• ${prefix}ytmp3 [url]_
+ _• ${prefix}ytmp4 [url]_
+ _• ${prefix}tiktok [url]_
+ _• ${prefix}tiktoknowm [url]_
+ _• ${prefix}tiktokwm [url]_
+ _• ${prefix}tiktokaudio [url]_
+ _• ${prefix}soundcloud [url]_
+ _• ${prefix}telesticker [url]_
+
+ *Convert*
+ _• ${prefix}stiker [video/image]_
+ _• ${prefix}semoji 😎_
+ _• ${prefix}smeme [text]_
+ _• ${prefix}memegen [text|text2]_
+ _• ${prefix}fast [video/vn]_
+ _• ${prefix}tupai [video/vn]_
+ _• ${prefix}vibra [video/vn]_
+ _• ${prefix}robot [video/vn]_
+ _• ${prefix}slow [video/vn]_
+ _• ${prefix}bass [video/vn]_
+ _• ${prefix}nightcore [video/vn]_
+
+ *Nulis*
+ _• ${prefix}nuliskiri [text]_
+ _• ${prefix}nuliskanan [text]_
+ _• ${prefix}foliokiri [text]_
+ _• ${prefix}foliokanan [text]_
+
+ *Game*
+ _• ${prefix}tebakgambar_
+
+ *Info*
+ _• ${prefix}owner_
+ _• ${prefix}daftar_
+
+ *Owner*
+ _• ${prefix}broadcast [text]_
+ _• ${prefix}leave_
+ _• >
+ _• $
+ _•  =>
+
+ *Group*
+ _• ${prefix}antilink 1 / 0_
+ _• ${prefix}hidetag [text]_
+ _• ${prefix}linkgrup_
+ _• ${prefix}tagall_
+ _• ${prefix}kick @tag
+ _• ${prefix}setdesc [text]_ 
+ _• ${prefix}setname [text]_ 
+
 `
 	}
