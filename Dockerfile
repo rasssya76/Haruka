@@ -14,6 +14,7 @@ COPY package.json .
 RUN npm install -g npm@latest
 RUN npm install
 RUN npm i ffmpeg
+RUN npm i ytdl-core
 RUN npm i @adiwajshing/baileys@latest
 RUN npm install -g forever   
 RUN npm install yt-search@latest
