@@ -66,7 +66,8 @@ const _limit = JSON.parse(fs.readFileSync('./database/user/limit.json'))
 const premium = JSON.parse(fs.readFileSync('./database/user/premium.json'))
 
 const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json'))
-
+autoread = false
+autocomposing = false
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -317,7 +318,21 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 					fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
 					}
 				}
-						
+				if (autoread) {
+                haruka.chatRead(from)
+                }	
+                if (autocomposing) {
+                haruka.updatePresence(from, Presence.composing)
+                }	
+                if (budy.startsWith('rama')){
+sendButMessage(from, `${JSON.stringify(me, null, 2)}`, "Apa panggil owner ku", [{buttonId: 'ytm', buttonText: {displayText: ':v'}, type: 1}], {quoted:ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
+}
+ if (budy.startsWith('Rama')){
+sendButMessage(from, `${JSON.stringify(me, null, 2)}`, "Apa panggil owner ku", [{buttonId: 'ytm', buttonText: {displayText: ':v'}, type: 1}], {quoted:ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
+}
+if(isButton == 'ytm'){
+reply('http://youtube.com/RamaGans')
+}
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
@@ -793,7 +808,7 @@ case 'memegenerator': case 'memegen':{
 											console.log(e)
 										}
 										}
-									break	
+									break										 
 case 'leave':
 			if (!isGroup) return reply(lang.group())
 			if (!isOwner) return reply(lang.owner(botname))
@@ -989,7 +1004,33 @@ case 'nightcore':{
 						haruka.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek,duration:99999999999999999999999})
 						fs.unlinkSync(ran)
 					   })}
-				  break      
+				  break    
+				  case 'autoread':
+      if (!isOwner) return reply(lang.owner(botname))
+       if (args.length < 1) return reply(`Penggunaan ${prefix}autoread on/off`)
+           if (c === 'on'){
+             autoread = true
+                    reply(`Berhasil mengaktifkan autoread`)
+                } else if (c === 'off'){
+                    autoread = false
+                    reply(`Berhasil menonaktifkan autoread`)
+                } else {
+                    reply(mess.error.api)
+                }
+                break
+                case 'fakengetik':
+      if (!isOwner) return reply(lang.owner(botname))
+       if (args.length < 1) return reply(`Penggunaan ${prefix}fakengetik on/off`)
+           if (c === 'on'){
+             autocomposing = true
+                    reply(`Berhasil mengaktifkan fakengetik`)
+                } else if (c === 'off'){
+                    autocomposing = false
+                    reply(`Berhasil menonaktifkan fakengetik`)
+                } else {
+                    reply(mess.error.api)
+                }
+                break  
 case 'bass': {
 									encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 									media = await haruka.downloadAndSaveMediaMessage(encmedia)
