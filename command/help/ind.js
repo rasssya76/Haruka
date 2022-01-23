@@ -22,8 +22,8 @@ exports.daftar = (sender, pushname, time, serialUser, totalUser) =>{
  • Serial : _${serialUser}_
  • Total User : _${totalUser.length}_
 
-*Thanks, already registered, now type .menu to view
-bot features*
+Thanks, already registered, now type .menu to view
+bot features
 `
 	}
 exports.owner = (botname) =>{
