@@ -127,6 +127,8 @@ exports.menu = (prefix, salam, pushname) =>{
  *Owner*
  _• ${prefix}broadcast [text]_
  _• ${prefix}leave_
+ _• ${prefix}autoread on/off_
+ _• ${prefix}fakengetik on/off_
   • >
   • $
   •  =>
