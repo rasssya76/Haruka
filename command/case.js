@@ -209,6 +209,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						const ownerNumber = [`${ownernumber}@s.whatsapp.net`] 
 						const isGroup = from.endsWith('@g.us')
 						const totalchat = await haruka.chats.all()
+						const isButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
 						const sender = mek.key.fromMe ? haruka.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 						const isOwner = mek.key.fromMe ? haruka.user.jid : ownerNumber.includes(sender)
 						const conts = mek.key.fromMe ? haruka.user.jid : haruka.contacts[sender] || { notify: jid.replace(/@.+/, '') }
@@ -325,14 +326,11 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
                 haruka.updatePresence(from, Presence.composing)
                 }	
                 if (budy.startsWith('rama')){
-sendButMessage(from, `${JSON.stringify(me, null, 2)}`, "Apa panggil owner ku", [{buttonId: 'ytm', buttonText: {displayText: ':v'}, type: 1}], {quoted:ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
+sendButLocation(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
  if (budy.startsWith('Rama')){
-sendButMessage(from, `${JSON.stringify(me, null, 2)}`, "Apa panggil owner ku", [{buttonId: 'ytm', buttonText: {displayText: ':v'}, type: 1}], {quoted:ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
+sendButLocation(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
-if(isButton == 'ytm'){
-reply('http://youtube.com/RamaGans')
-}
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
