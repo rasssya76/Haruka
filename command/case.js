@@ -586,8 +586,9 @@ case 'ig': case 'igdl':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 	if (!q) return reply('Linknya?')
 	if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply(mess.errorLink)
+	reply(lang.wait())
 	let urlnya = q
-	zee.igdl(urlnya)
+	hx.igdl(urlnya)
 	.then(async(result) => {
 		for(let i of result.medias){
 			if(i.url.includes('mp4')){
