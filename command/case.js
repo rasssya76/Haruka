@@ -68,7 +68,6 @@ const premium = JSON.parse(fs.readFileSync('./database/user/premium.json'))
 const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json'))
 autoread = false
 autocomposing = false
-hmp = 'kenapa panggil owner ku 🍎'
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -325,12 +324,6 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
                 if (autocomposing) {
                 haruka.updatePresence(from, Presence.composing)
                 }	
-                if (budy.startsWith('rama')){
-sendButMessage(from, ${hmp}, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
-}
- if (budy.startsWith('Rama')){
-sendButMessage(from, ${hmp}, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
-}
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
@@ -462,8 +455,7 @@ sendButMessage(from, ${hmp}, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {di
 						headerType: 4
 						}
 					haruka.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-				}
-				
+				}				                
 				// antilink
                 if (manti.includes("://chat.whatsapp.com/")){
 		        if (!isGroup) return
