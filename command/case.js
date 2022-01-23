@@ -494,7 +494,8 @@ case 'menu': case 'help': case 'Bot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
 				lima = fs.readFileSync('./help.mp3');
-haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', ptt:true quoted: ftroli,duration:99999999999999999999999})
+haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: ftroli})
+break
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			reply('cuk Lu mau Eksrim ga 🍦🍦')
