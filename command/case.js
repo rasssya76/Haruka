@@ -208,8 +208,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						const botNumber = haruka.user.jid
 						const ownerNumber = [`${ownernumber}@s.whatsapp.net`] 
 						const isGroup = from.endsWith('@g.us')
-						const totalchat = await haruka.chats.all()
-						const isButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
+						const totalchat = await haruka.chats.all()						 
 						const sender = mek.key.fromMe ? haruka.user.jid : isGroup ? mek.participant : mek.key.remoteJid
 						const isOwner = mek.key.fromMe ? haruka.user.jid : ownerNumber.includes(sender)
 						const conts = mek.key.fromMe ? haruka.user.jid : haruka.contacts[sender] || { notify: jid.replace(/@.+/, '') }
@@ -326,10 +325,10 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
                 haruka.updatePresence(from, Presence.composing)
                 }	
                 if (budy.startsWith('rama')){
-sendButLocation(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
+sendButMessage(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
  if (budy.startsWith('Rama')){
-sendButLocation(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
+sendButMessage(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
 			//function
 			const reply = (teks) => {
@@ -1007,10 +1006,10 @@ case 'nightcore':{
 				  case 'autoread':
       if (!isOwner) return reply(lang.owner(botname))
        if (args.length < 1) return reply(`Penggunaan ${prefix}autoread on/off`)
-           if (c === 'on'){
+           if (q === 'on'){
              autoread = true
                     reply(`Berhasil mengaktifkan autoread`)
-                } else if (c === 'off'){
+                } else if (q === 'off'){
                     autoread = false
                     reply(`Berhasil menonaktifkan autoread`)
                 } else {
@@ -1020,10 +1019,10 @@ case 'nightcore':{
                 case 'fakengetik':
       if (!isOwner) return reply(lang.owner(botname))
        if (args.length < 1) return reply(`Penggunaan ${prefix}fakengetik on/off`)
-           if (c === 'on'){
+           if (q === 'on'){
              autocomposing = true
                     reply(`Berhasil mengaktifkan fakengetik`)
-                } else if (c === 'off'){
+                } else if (q === 'off'){
                     autocomposing = false
                     reply(`Berhasil menonaktifkan fakengetik`)
                 } else {
