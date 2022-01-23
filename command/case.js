@@ -102,7 +102,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 					whitespaceBreak: false
 					}), 'skyblue'))
 				haruka.on('qr', () => {
-					console.log(color('[','white'), color('!','red'), color(']','white'), color('SCAN QR MASK 15 SECONDS, AND SUBSCRIBE YOUTUBE ZEEONE OFC'))
+					console.log(color('[','white'), color('!','red'), color(']','white'), color('SCAN QR MASK 15 SECONDS '))
 					})
 			fs.existsSync(`./settings/${session_name}`) && haruka.loadAuthInfo(`./settings/${session_name}`)
 			haruka.on('connecting', () => {
@@ -152,7 +152,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						let gakloo = [{
 										"buttonId": `.owner`,
 										"buttonText": {
-											"displayText": "Welcome 👋"
+											"displayText": "Welcome"
 											},
 										"type": "RESPONSE"
 										}]
@@ -486,15 +486,15 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 //colong aja bang, ingat jgn asal colong ntr sc lu error
 switch (command) {
 case 'menu': case 'help': case 'Bot':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
 				break
 case 'infobot':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			reply('cuk Lu mau Eksrim ga 🍦🍦')
 break
 case 'owner':{
-	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 		const ownerContact = [ownernumber, "", "", "", "", "", "", "", "", "", "" , "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 		let ini_list = []
 		for (let i of ownerContact.map(v => v + '@s.whatsapp.net')) {
@@ -512,7 +512,7 @@ case 'owner':{
 				}
 			break
 case 'sticker':case 'stiker':case 'stickergif':case 'stikergif':case 'sgif':case 's':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 			const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 			const media = await haruka.downloadAndSaveMediaMessage(encmedia)
@@ -568,7 +568,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 					
 // download fix by zeeone
 case 'ig': case 'igdl': 
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 	if (!q) return reply('Linknya?')
 	if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply(mess.errorLink)
 	let urlnya = q
@@ -587,17 +587,17 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
             
              break
 case 'tiktok':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 sendButLocation(from, 'Silahkan pilih media yang ingin kamu download', '© ' + ownername, thumbnail, [{buttonId: `.tiktokwm ${q}`, buttonText: {displayText: 'WM'}, type: 1},{buttonId: `.tiktoknowm ${q}`, buttonText:{displayText: 'NOWM'}, type: 1},{buttonId: `.tiktokmusic ${q}`, buttonText:{displayText: 'AUDIO'}, type: 1}], {quoted: mek})
 						
              break
 case 'tiktoknowm':   
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
 			reply(lang.wait())
 			let nowem = q
-			zee.ttdownloader(nowem)
+			hx.ttdownloader(nowem)
 			.then(result => {
 				const { wm, nowm, audio } = result
 				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
@@ -610,12 +610,12 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			
              break 
 case 'tiktokwm':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
 			reply(lang.wait())
 			let wem = args.join(' ')
-			zee.ttdownloader(wem)
+			hx.ttdownloader(wem)
 			.then(result => {
 				const { wm, nowm, audio } = result
 				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
@@ -628,7 +628,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			
              break 
 case 'tiktokmusic': case 'tiktokaudio':  
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid Link')
 			reply(lang.wait())
@@ -645,7 +645,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			
              break
 case 'pinterest': 
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if(!q) return reply('Masukkan query')
             async function pinterestSearch(query) {
                     return new Promise((resolve, reject) => {
@@ -698,7 +698,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
                 
              break
 case 'play': case 'song':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (args.length === 0) return reply(`Kirim perintah *${prefix}play* _Judul lagu_`)
 			var srch = args.join(' ')
 			aramas = await yts(srch);
@@ -737,7 +737,7 @@ case 'daftar': case 'verify': case 'register':
 			await sendButImage(from, lang.daftar(sender, pushname, time, serialUser, _registered), `© ${botname}`,await getBuffer(ppregis), [{buttonId: '.menu',buttonText: {displayText: `MENU`,},type: 1,}], {thumbnail: Buffer.alloc(0), quoted : ftroli})
 break
 case 'antilink':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
@@ -805,7 +805,7 @@ case 'leave':
 			}, 0)
 			break
 case 'hidetag':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			var value = q
@@ -823,14 +823,14 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			haruka.sendMessage(from, options, text)
 			break
 case 'linkgrup':case 'linkgroup': case 'linkgc':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			linkgc = await haruka.groupInviteCode(from)
 			yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 			haruka.sendMessage(from, yeh, text, { quoted: mek })
 			break  
 case 'tagall':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			members_id = []
@@ -843,7 +843,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 			mentions(taga, members_id, true)
 			break 
 case 'setname':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
@@ -851,7 +851,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 					haruka.sendMessage(from, `Sukses Mengubah Nama Grup Menjadi ${q}`, text, { quoted: mek })
 			break          
 case 'setdesc': case 'setdesk':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
@@ -859,7 +859,7 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 					haruka.sendMessage(from, `Sukses Mengubah Desk Grup Menjadi ${q}`, text, { quoted: mek })
 			break   
 case 'kick':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!isGroup) return reply(lang.group())
 			if (!isGroupAdmins) return reply(lang.admin(groupName))
 			if (!isBotGroupAdmins) return reply(lang.adminB())
@@ -870,89 +870,89 @@ if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the bu
 break
 //maker
 				case 'metaldark':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}metaldark teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metaldark?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'glitch':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!arg) return reply(from, `Penggunaan ${prefix}glitch teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/glitch2?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 
 				case 'blackpink':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}blackpink teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/blackpink?text=${args}&apikey=Alphabot`)
 				break
 				case 'holographic':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}holographic teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/holographic?text=${args}&apikey=Alphabot`)
 				break
 				case 'ninjalogo':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!arg) return reply(from, `Penggunaan ${prefix}ninjalogo teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/ninja?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 				case 'bread':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}bread teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/bread?text=${args}&apikey=Alphabot`)
 				break
 				case 'carbon':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}carbon teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/carbon?text=${args}&apikey=Alphabot`)
 				break
 				case 'blackmetal':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}blackmetal teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metalb2?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'scifi':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!arg) return reply(from, `Penggunaan ${prefix}scifi teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/scifi?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'marble':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}marble teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/marble?text=${args}&apikey=Alphabot`)
 				break
 				case 'dropwater':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}dropwater teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/dropwater?text=${args}&apikey=Alphabot`)
 				break
 				case 'greenneon':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!arg) return reply(from, `Penggunaan ${prefix}greenneon teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/gneon?text=${args}&apikey=Alphabot`)
 				break
 				case 'neon':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}neon teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/neon2?text=${args}&apikey=Alphabot`)
 				break
 				case 'spalking':
-				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: `register`,},type: 1,}], {quoted: fgif});
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}spalking teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/sparkling5?text=${args}&apikey=Alphabot`)
