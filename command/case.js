@@ -68,6 +68,7 @@ const premium = JSON.parse(fs.readFileSync('./database/user/premium.json'))
 const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json'))
 autoread = false
 autocomposing = false
+hmp = 'kenapa panggil owner ku 🍎'
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -325,10 +326,10 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
                 haruka.updatePresence(from, Presence.composing)
                 }	
                 if (budy.startsWith('rama')){
-sendButMessage(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
+sendButMessage(from, ${hmp}, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
  if (budy.startsWith('Rama')){
-sendButMessage(from, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
+sendButMessage(from, ${hmp}, 'BY RAMA🍎', [{buttonId: '.owner',buttonText: {displayText: `ʜᴍᴍᴍ`,},type: 1,}], {quoted: fdoc});
 }
 			//function
 			const reply = (teks) => {
@@ -500,7 +501,8 @@ switch (command) {
 case 'menu': case 'help': case 'Bot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
-				break
+				lima = fs.readFileSync('./help.mp3');
+haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', ptt:true quoted: ftroli,duration:99999999999999999999999})
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			reply('cuk Lu mau Eksrim ga 🍦🍦')
@@ -892,7 +894,7 @@ break
 				case 'glitch':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
-				if (!arg) return reply(from, `Penggunaan ${prefix}glitch teks1 & teks2`, ftroli)
+				if (!q) return reply(from, `Penggunaan ${prefix}glitch teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/glitch2?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 
@@ -911,7 +913,7 @@ break
 				case 'ninjalogo':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
-				if (!arg) return reply(from, `Penggunaan ${prefix}ninjalogo teks1 & teks2`, ftroli)
+				if (!q) return reply(from, `Penggunaan ${prefix}ninjalogo teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/ninja?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 				case 'bread':
@@ -936,7 +938,7 @@ break
 				case 'scifi':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
-				if (!arg) return reply(from, `Penggunaan ${prefix}scifi teks`, ftroli)
+				if (!q) return reply(from, `Penggunaan ${prefix}scifi teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/scifi?text=${args}&apikey=Alphabot`)
 				break
 
@@ -955,7 +957,7 @@ break
 				case 'greenneon':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				reply(lang.wait())
-				if (!arg) return reply(from, `Penggunaan ${prefix}greenneon teks1 & teks2`, ftroli)
+				if (!q) return reply(from, `Penggunaan ${prefix}greenneon teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/gneon?text=${args}&apikey=Alphabot`)
 				break
 				case 'neon':
@@ -989,20 +991,7 @@ case 'bc': case 'broadcast':
 						}
 						reply('Sukses broadcast')
 					}
-					break      
-case 'nightcore':{
-	                 if (!isQuotedAudio) return reply('Reply audio nya om')
-					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
-					media = await haruka.downloadAndSaveMediaMessage(encmedia)
-					ran = getRandom('.mp3')
-					exec(`ffmpeg -i ${media} -filter:a atempo=1.06,asetrate=44100*1.25 ${ran}`, (err, stderr, stdout) => {
-						fs.unlinkSync(media)
-						if (err) return reply('Error!')
-						hah = fs.readFileSync(ran)
-						haruka.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek,duration:99999999999999999999999})
-						fs.unlinkSync(ran)
-					   })}
-				  break    
+					break         
 				  case 'autoread':
       if (!isOwner) return reply(lang.owner(botname))
        if (args.length < 1) return reply(`Penggunaan ${prefix}autoread on/off`)
@@ -1029,6 +1018,30 @@ case 'nightcore':{
                     reply(mess.error.api)
                 }
                 break  
+//covert              
+                case 'nightcore':{
+	                 if (!isQuotedAudio) return reply('Reply audio nya om')
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await haruka.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${media} -filter:a atempo=1.06,asetrate=44100*1.25 ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(media)
+						if (err) return reply('Error!')
+						hah = fs.readFileSync(ran)
+						haruka.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek,duration:99999999999999999999999})
+						fs.unlinkSync(ran)
+					   })}
+				  break
+				  case 'tourl':
+    if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
+            boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+            owgi = await haruka.downloadMediaMessage(boij)
+            res = await upload(owgi)
+            reply(res)
+            } else {
+            reply('kirim/reply gambar/video')
+            }
+            break			             
 case 'bass': {
 									encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 									media = await haruka.downloadAndSaveMediaMessage(encmedia)
