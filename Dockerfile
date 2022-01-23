@@ -11,13 +11,12 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 COPY package.json .
-RUN npm install -g npm@latest
 RUN npm install
 RUN npm i ffmpeg
 RUN npm i ytdl-core
 RUN npm i @adiwajshing/baileys@latest
 RUN npm install -g forever   
-RUN npm install yt-search@latest
+RUN npm i yt-search
 
 COPY . .
 EXPOSE 5000
