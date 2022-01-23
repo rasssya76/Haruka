@@ -68,6 +68,7 @@ const premium = JSON.parse(fs.readFileSync('./database/user/premium.json'))
 const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json'))
 autoread = false
 autocomposing = false
+autorespon = false
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -235,7 +236,11 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 			let fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {}) },message: { "videoMessage": { "title":`© ${ownername}`, "h": `Hmm`,'seconds': '99999', 'caption': `© ${ownername}`, 'jpegThumbnail': thumbnail}}}
 			let floc = {contextInfo: {"forwardingScore":999,"isForwarded":true,'stanzaId': 'B826873620DD5947E683E3ABE663F263', 'participant':`0@s.whatsapp.net`, 'remoteJid': '6283136505591-1614953337@g.us', 'quotedMessage': {"locationMessage": {"degreesLatitude": 41.893714904785156, "degreesLongitude": -87.63370513916016, "name": botname , 'jpegThumbnail':thumbnail}}}}
 			let fkontak = { key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: `6283136505591-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `© ${ownername}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername},\nitem1.TEL;waid=${sender.split('@')[0]}:${sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': thumbnail, thumbnail: thumbnail,sendEphemeral: true}}}
-		
+			}
+		const katalog = (teks) => {
+             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             denz.relayWAMessage(res)
+        }
 			const addRegisteredUser = (userid, sender, time, serials) => {
 				const obj = { id: userid, name: sender, time: time, serial: serials }
 				_registered.push(obj)
@@ -324,6 +329,11 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
                 if (autocomposing) {
                 haruka.updatePresence(from, Presence.composing)
                 }	
+                if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
+                     sami = simi.success
+                        haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
+                      }
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
@@ -1011,6 +1021,25 @@ case 'bc': case 'broadcast':
                     reply(mess.error.api)
                 }
                 break  
+                case 'autorespon':
+      if (!isOwner) return reply(lang.owner(botname))
+       if (args.length < 1) return reply(`Penggunaan ${prefix}autorespon on/off`)
+           if (q === 'on'){
+              autorespon = true
+              multi = true
+              allpref = false
+              nopref = false
+                    reply(`Berhasil mengaktifkan autorespon`)
+                } else if (q === 'off'){
+                    autorespon = false
+                    multi = false
+              allpref = true
+              nopref = false
+                    reply(`Berhasil menonaktifkan autorespon`)
+                } else {
+                    reply(mess.error.api)
+                }
+                break
 //covert              
                 case 'nightcore':{
 	                 if (!isQuotedAudio) return reply('Reply audio nya om')
