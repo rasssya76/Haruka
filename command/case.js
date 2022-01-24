@@ -1334,7 +1334,7 @@ try {
 return haruka.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: mek})
 } catch(err) {
 e = String(err)
-katalog(e)
+reply(e)
 }
 }  
 if (budy.startsWith('$')){
@@ -1343,7 +1343,7 @@ qur = budy.slice(2)
 exec(qur, (err, stdout) => {
 if (err) return katalog(`HarukaBot :~ ${err}`)
 if (stdout) {
-katalog(stdout)
+reply(stdout)
 }
 })
 }
@@ -1362,7 +1362,7 @@ try {
 katalog(util.format(eval(`;(async () => { ${konsol} })()`)))
 console.log('\x1b[1;31m~\x1b[1;37m>', '[', '\x1b[1;32m EXC \x1b[1;37m', ']', time, color("=>", "green"), 'from', color(pushname), 'args :', color(args.length))
 } catch(e){
-katalog(String(e))
+reply(String(e))
 }
 }                                               	
               }   
