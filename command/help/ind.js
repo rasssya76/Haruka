@@ -62,8 +62,8 @@ exports.leave = () =>{
 	return`
  _Back again should donation_ >_<`
 }
- exports.menu = (prefix, salam, pushname) =>{
-	return`Hi ${pushname}, safe ${salam}
+exports.menu = (prefix, salam, pushname) =>{
+return`Hi ${pushname}, safe ${salam}
 
  *Play Menu*
  _• ${prefix}menu_
