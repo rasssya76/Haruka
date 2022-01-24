@@ -80,6 +80,7 @@ let {
 	} = setting
 let thumbnail = fs.readFileSync(setting.thumbnail)
 let limitawal = setting.limit.free
+thumbnail = fs.readFileSync('./settings/haruka.jpg')
 
 /*
 # language
@@ -228,7 +229,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						
 			//fake reply
 			const katalog = (teks) => {
-             res = haruka.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             res = haruka.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftrol})
              haruka.relayWAMessage(res)
            }
 			let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net",   "remoteJid": "6289523258649-1604595598@g.us"  }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumbnail, surface: 200, message: `${botname} 🏟️\nBy ${ownername}`, orderTitle: 'Bot', sellerJid: '0@s.whatsapp.net'}},sendEphemeral: true}
