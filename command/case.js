@@ -504,6 +504,7 @@ simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
 switch (command) {
 case 'menu': case 'help': case 'Bot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
+katalog('𝗦𝗲𝗱𝗮𝗻𝗴 𝗠𝗲𝗻𝗮𝗺𝗽𝗶𝗹𝗸𝗮𝗻 𝗠𝗲𝗻𝘂 𝗠𝗼𝗵𝗼𝗻 𝗧𝘂𝗻𝗴𝗴𝘂!!')
 sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: mek})
 lima = fs.readFileSync('./help.mp3');
 haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: ftroli})
