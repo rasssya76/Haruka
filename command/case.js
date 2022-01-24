@@ -1036,6 +1036,41 @@ case 'bc': case 'broadcast':
                     reply(mess.error.api)
                 }
                 break
+                case 'addvn':
+					if (!isOwner) return reply(lang.owner(botname))
+					if (!isQuotedAudio) return reply('Reply audio')
+					nm = body.slice(7)
+					if (!nm) return reply('Nama vn nya apa?')
+					boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+					delb = await haruka.downloadMediaMessage(boij)
+					vien.push(`${nm}`)
+					fs.writeFileSync(`./media/vn/${nm}.mp3`, delb)
+					fs.writeFileSync('./database/vien.json', JSON.stringify(vien))
+					haruka.sendMessage(from, `Sukses, silahkan cek dengan *${prefix}listvn*`, MessageType.text, { quoted: ftroli })
+					break
+					case 'delvn':
+					if (!isOwner) return reply(lang.owner(botname))
+					try {
+					 nmm = body.slice(7)
+					 wanu = vien.indexOf(nmm)
+					 vien.splice(wanu, 1)
+					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
+					reply(`Sukses menghapus vn ${body.slice(7)}`)
+					} catch (err){
+						console.log(err)
+						reply(mess.error.api)
+					}
+					break
+				case 'vnlist':
+				case 'listvn':
+		     		if (!isOwner) return reply(lang.owner(botname))
+					teks = '*VN List :*\n\n'
+					for (let awokwkwk of vien) {
+						teks += `- ${awokwkwk}\n`
+					}
+					teks += `\n*Total : ${vien.length}*\n\n_Untuk mengambil vn silahkan reply pesan ini dengan caption nama vn_`
+					haruka.sendMessage(from, teks.trim(), extendedText, { quoted: ftroli, contextInfo: { "mentionedJid": vien } })
+					break
 //covert              
                 case 'nightcore':{
 	                 if (!isQuotedAudio) return reply('Reply audio nya om')
