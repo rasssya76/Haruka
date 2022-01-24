@@ -503,8 +503,8 @@ simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
 switch (command) {
 case 'menu': case 'help': case 'Bot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
-				lima = fs.readFileSync('./help.mp3');
+sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: mek})
+lima = fs.readFileSync('./help.mp3');
 haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: ftroli})
 break
 case 'infobot':
@@ -589,7 +589,7 @@ case 'ig': case 'igdl':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 	if (!q) return reply('Linknya?')
 	if (!isUrl(args[0]) && !args[0].includes('instagram.com')) return reply(mess.errorLink)
-	reply(lang.wait())
+	katalog(lang.wait())
 	let urlnya = q
 	hx.igdl(urlnya)
 	.then(async(result) => {
@@ -614,7 +614,7 @@ case 'tiktoknowm':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
-			reply(lang.wait())
+			katalog(lang.wait())
 			let nowem = q
 			hx.ttdownloader(nowem)
 			.then(result => {
@@ -632,7 +632,7 @@ case 'tiktokwm':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
-			reply(lang.wait())
+			katalog(lang.wait())
 			let wem = args.join(' ')
 			hx.ttdownloader(wem)
 			.then(result => {
@@ -650,7 +650,7 @@ case 'tiktokmusic': case 'tiktokaudio':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 			if (!q) return reply('Linknya?')
 			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid Link')
-			reply(lang.wait())
+			katalog(lang.wait())
 			let audi = q
 			hx.ttdownloader(audi)
 			.then(result => {
@@ -753,7 +753,7 @@ case 'daftar': case 'verify': case 'register':
 				}
 			const serialUser = createSerial(20)
 			await addRegisteredUser(sender, pushname, time, serialUser)
-			await sendButImage(from, lang.daftar(sender, pushname, time, serialUser, _registered, katalog), {quoted : ftroli})
+			await sendButImage(from, lang.daftar(sender, pushname, time, serialUser, _registered), `© ${botname}`,await getBuffer(ppregis), [{buttonId: '.menu',buttonText: {displayText: `MENU`,},type: 1,}], {thumbnail: Buffer.alloc(0), quoted : mek})
 break
 case 'antilink':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
@@ -780,7 +780,7 @@ case 'memegenerator': case 'memegen':{
 									if (!q.includes('|')) return reply(`Kirim perintah *${prefix + command}* teks atas|teks bawah`)
 									try {
 										if (!isQuotedImage) return reply(`Reply Gambar!`)
-										reply(lang.wait())
+										katalog(lang.wait())
 										var teks1 = q.split('|')[0] ? q.split('|')[0] : ''
 										var teks2 = q.split('|')[1] ? q.split('|')[1] : ''
 										var enmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -800,7 +800,7 @@ case 'memegenerator': case 'memegen':{
 									if (q.includes('|')) return reply(`Kirim perintah *${prefix + command}* R-bot`)
 									try {
 										if (!isQuotedImage) return reply(`Reply Gambar!`)
-										reply(lang.wait())
+										katalog(lang.wait())
 										var teks2 = args.join(' ')
 										var enmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
 										var mediia = await haruka.downloadMediaMessage(enmedia)
@@ -890,89 +890,89 @@ break
 //maker
 				case 'metaldark':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}metaldark teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metaldark?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'glitch':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!q) return reply(from, `Penggunaan ${prefix}glitch teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/glitch2?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 
 				case 'blackpink':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}blackpink teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/blackpink?text=${args}&apikey=Alphabot`)
 				break
 				case 'holographic':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}holographic teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/holographic?text=${args}&apikey=Alphabot`)
 				break
 				case 'ninjalogo':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!q) return reply(from, `Penggunaan ${prefix}ninjalogo teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/ninja?text=${arg}&text2=${arg}&apikey=Alphabot`)
 				break
 				case 'bread':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}bread teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/bread?text=${args}&apikey=Alphabot`)
 				break
 				case 'carbon':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}carbon teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/carbon?text=${args}&apikey=Alphabot`)
 				break
 				case 'blackmetal':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}blackmetal teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/metalb2?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'scifi':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!q) return reply(from, `Penggunaan ${prefix}scifi teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/scifi?text=${args}&apikey=Alphabot`)
 				break
 
 				case 'marble':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}marble teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/marble?text=${args}&apikey=Alphabot`)
 				break
 				case 'dropwater':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}dropwater teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/dropwater?text=${args}&apikey=Alphabot`)
 				break
 				case 'greenneon':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!q) return reply(from, `Penggunaan ${prefix}greenneon teks1 & teks2`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/gneon?text=${args}&apikey=Alphabot`)
 				break
 				case 'neon':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}neon teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/neon2?text=${args}&apikey=Alphabot`)
 				break
 				case 'spalking':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				reply(lang.wait())
+				katalog(lang.wait())
 				if (!args) return reply(from, `Penggunaan ${prefix}spalking teks`, ftroli)
 				sendMediaURL(from, `https://api-alphabot.herokuapp.com/api/textpro/sparkling5?text=${args}&apikey=Alphabot`)
 				break
@@ -1195,7 +1195,7 @@ case 'fast':{
 									break
 case 'toimg':{
 		if (!isQuotedSticker) return reply('Reply stc nya!')
-					reply(lang.wait())
+					katalog(lang.wait())
 					encmediaa = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					mediaa = await haruka.downloadAndSaveMediaMessage(encmediaa)
 					ran = getRandom('.png')
@@ -1210,7 +1210,7 @@ case 'toimg':{
 					break   
 case 'nuliskiri':{
 									if (args.length < 1) return reply(`Kirim perintah *${prefix}nuliskiri* teks`)
-									reply(lang.wait())
+									katalog(lang.wait())
 									const tulisan = q
 									const splitText = tulisan.replace(/(\S+\s*){1,9}/g, '$&\n')
 									const fixHeight = splitText.split('\n').slice(0, 31).join('\n')
@@ -1238,7 +1238,7 @@ case 'nuliskiri':{
 									break
 						case 'nuliskanan':{
 									if (args.length < 1) return reply(`Kirim perintah *${prefix}nuliskanan* teks`)
-									reply(lang.wait())
+									katalog(lang.wait())
 									const tulisan = q
 									const splitText = tulisan.replace(/(\S+\s*){1,9}/g, '$&\n')
 									const fixHeight = splitText.split('\n').slice(0, 31).join('\n')
@@ -1266,7 +1266,7 @@ case 'nuliskiri':{
 									break
 						case 'foliokiri':{
 									if (args.length < 1) return reply(`Kirim perintah *${prefix}foliokiri* teks`)
-									reply(lang.wait())
+									katalog(lang.wait())
 									const tulisan = q
 									const splitText = tulisan.replace(/(\S+\s*){1,13}/g, '$&\n')
 									const fixHeight = splitText.split('\n').slice(0, 38).join('\n')
@@ -1294,7 +1294,7 @@ case 'nuliskiri':{
 									break
 						case 'foliokanan':{
 									if (args.length < 1) return reply(`Kirim perintah *${prefix}foliokanan* teks`)
-									reply(lang.wait())
+									katalog(lang.wait())
 									const tulisan = q
 									const splitText = tulisan.replace(/(\S+\s*){1,13}/g, '$&\n')
 									const fixHeight = splitText.split('\n').slice(0, 38).join('\n')
