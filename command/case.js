@@ -229,7 +229,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						
 			//fake reply
 			const katalog = (teks) => {
-             res = haruka.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftrol})
+             res = haruka.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": thumbnail, "surface": 'CATALOG' }}, {quoted:ftroli})
              haruka.relayWAMessage(res)
            }
 			let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net",   "remoteJid": "6289523258649-1604595598@g.us"  }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumbnail, surface: 200, message: `${botname} 🏟️\nBy ${ownername}`, orderTitle: 'Bot', sellerJid: '0@s.whatsapp.net'}},sendEphemeral: true}
@@ -504,7 +504,7 @@ switch (command) {
 case 'menu': case 'help': case 'Bot':
 menu = lang.menu
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
+				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
 				lima = fs.readFileSync('./help.mp3');
 haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: ftroli})
 katalog(menu)
