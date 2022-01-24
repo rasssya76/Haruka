@@ -25,6 +25,7 @@ exports.daftar = (sender, pushname, time, serialUser, totalUser) =>{
 Thanks, already registered, now type .menu to view
 bot features
 `
+katalog(daftar)
 	}
 exports.owner = (botname) =>{
 	return`*REJECT* | Only Owner ${botname}`
@@ -61,7 +62,7 @@ exports.leave = () =>{
 	return`
  _Back again should donation_ >_<`
 }
-exports.menu = (prefix, salam, pushname) =>{
+ exports.menu = (prefix, salam, pushname) =>{
 	return`Hi ${pushname}, safe ${salam}
 
  *Play Menu*
@@ -129,6 +130,8 @@ exports.menu = (prefix, salam, pushname) =>{
  _• ${prefix}leave_
  _• ${prefix}autoread on/off_
  _• ${prefix}fakengetik on/off_
+ _• ${prefix}autorespon on/off_
+ _• ${prefix}addvn replyaudio_
   • >
   • $
   •  =>
