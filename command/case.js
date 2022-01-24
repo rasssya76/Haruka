@@ -227,6 +227,10 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						const isGroupAdmins = groupAdmins.includes(sender) || false
 						
 			//fake reply
+			const katalog = (teks) => {
+             res = haruka.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "R-BOT", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             haruka.relayWAMessage(res)
+           }
 			let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net",   "remoteJid": "6289523258649-1604595598@g.us"  }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: thumbnail, surface: 200, message: `${botname} 🏟️\nBy ${ownername}`, orderTitle: 'Bot', sellerJid: '0@s.whatsapp.net'}},sendEphemeral: true}
       	  let fdoc = {key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `© ${ownername}`,jpegThumbnail: thumbnail}}}
    	     let fvn = {key: {participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: { "audioMessage": {"mimetype":"audio/ogg; codecs=opus","seconds":99999,"ptt": "true"}} } 
@@ -497,10 +501,12 @@ simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
 //colong aja bang, ingat jgn asal colong ntr sc lu error
 switch (command) {
 case 'menu': case 'help': case 'Bot':
+menu = lang.menu
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				sendButLocation(from, lang.menu(prefix, salam, pushname), '© ' + ownername, thumbnail, [{buttonId: '.owner', buttonText: {displayText: 'ᴏᴡɴᴇʀ'}, type: 1},{buttonId: '.infobot', buttonText:{displayText: 'ɪɴғᴏʙᴏᴛ'}, type: 1}], {quoted: ftroli})
 				lima = fs.readFileSync('./help.mp3');
 haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', duration: 359996400, ptt:true, quoted: ftroli})
+katalog(menu)
 break
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
