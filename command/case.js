@@ -788,7 +788,8 @@ result = `*Nama :* ${res[0].nama}
 _File sedang dikirim, Silahkan tunggu beberapa menit_`
 reply(result)
 sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
-breakcase 'herolist':
+break
+case 'herolist':
 await herolist().then((ress) => {
 let listt = `*List hero untuk feature ${prefix}herodetail*\n\n`
 for (var i = 0; i < ress.hero.length; i++) {
