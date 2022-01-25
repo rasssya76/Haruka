@@ -336,8 +336,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
-                      }  
-                      }
+                      }                        
 			for (let anju of vien){
 				if (budy === anju){
 					result = fs.readFileSync(`./media/vn/${anju}.mp3`)
