@@ -125,6 +125,10 @@ return`Hi ${pushname}, safe ${salam}
  *Info*
  _• ${prefix}owner_
  _• ${prefix}daftar_
+ 
+ *Search*
+ _• ${prefix}wiki query_
+ _• ${prefix}lirik query_
 
  *Owner*
  _• ${prefix}broadcast [text]_
