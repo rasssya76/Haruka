@@ -1086,11 +1086,7 @@ case 'bc': case 'broadcast':
 					 wanu = vien.indexOf(nmm)
 					 vien.splice(wanu, 1)
 					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
-					katalog(`Sukses menghapus vn ${body.slice(7)}`)
-					} catch (e){
-						console.log(e)
-						katalog(mess.error.api)
-					}
+					katalog(`Sukses menghapus vn ${body.slice(7)}`)				
 					break
 				case 'vnlist':
 				case 'listvn':
