@@ -78,7 +78,8 @@ autocomposing = false
 autorespon = false
 baterai = {
 battery: "" || "Tidak Terdeteksi",
-isCharge: "" || false
+isCharge: "" || false
+}
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -811,8 +812,8 @@ sendButLocation(from, captions, '© ' + ownername, thumbyt, [{buttonId: `.ytmp4 
              case 'lirik':
 				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 				katalog(lang.wait())
-				if (!q) return katalog('Masukkan query')
-            	sendMediaURL(from, `https://hardianto.xyz/api/info/lirik?query=${arg}&apikey=hardianto`)
+		    	if (args.length < 1) return reply(' Yang Mau Di Cari Apa? ')
+            	sendMediaURL(from, `https://hardianto.xyz/api/info/lirik?query=${args}&apikey=hardianto`)
 				break
 
 case 'wiki':
