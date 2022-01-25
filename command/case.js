@@ -524,7 +524,7 @@ case 'owner':{
 		const ownerContact = [ownernumber, "", "", "", "", "", "", "", "", "", "" , "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 		let ini_list = []
 		for (let i of ownerContact.map(v => v + '@s.whatsapp.net')) {
-			const vname = haruka.contacts[i] != undefined ? haruka.contacts[i].vname || haruka.contacts[i].notify : undefined
+			const vname = haruka.contacts[i] != undefined ? haruka.contacts[i].harukaame || haruka.contacts[i].notify : undefined
 			ini_list.push({
 				"displayName": `${ownername}`,
 				"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:${vname}\nitem1.TEL;waid=${i.split('@')[0]}:${i.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
@@ -1086,7 +1086,11 @@ case 'bc': case 'broadcast':
 					 wanu = vien.indexOf(nmm)
 					 vien.splice(wanu, 1)
 					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
-					katalog(`Sukses menghapus vn ${body.slice(7)}`)				
+					katalog(`Sukses menghapus vn ${body.slice(7)}`)			
+					} catch (e) {
+								reply('Error!')
+									}  
+							}	
 					break
 				case 'vnlist':
 				case 'listvn':
