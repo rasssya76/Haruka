@@ -751,11 +751,11 @@ sendButLocation(from, captions, '© ' + ownername, thumbyt, [{buttonId: `.ytmp4 
 //serach                     
              case 'lirik':
 if (args.length < 1) return reply('Judulnya?')
-reply(mess.wait)
+katalog(lang.wait())
 teks = body.slice(7)
 lirikLagu(teks).then((res) => {
 let lirik = `${res[0].result}`
-reply(lirik)
+katalog(lirik)
 })
 break
 
@@ -771,6 +771,21 @@ sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => 
   reply(result)
 })
 break
+case 'tomp3':
+					haruka.updatePresence(from, Presence.composing)
+					if (!isQuotedVideo) return reply('Reply Video Nya Kak')
+					katalog(lang.wait())
+					encmediad = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
+					mediad = await haruka.downloadAndSaveMediaMessage(encmediad)
+					ran = getRandom('.mp4')
+					exec(`ffmpeg -i ${mediad} ${ran}`, (err) => {
+						fs.unlinkSync(mediad)
+						if (err) return reply(mess.error.api)
+						mhee = fs.readFileSync(ran)
+						haruka.sendMessage(from, mhee, audio, { mimetype: 'audio/mp4', duration: 359996400, quoted: mek })
+						fs.unlinkSync(ran)
+					})
+					break
     
 //group
 case 'daftar': case 'verify': case 'register':
