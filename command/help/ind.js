@@ -44,7 +44,7 @@ exports.group = () =>{
 	}
 
 exports.wait = () =>{
-	return`📩 𝑫𝒂𝒕𝒂 𝑰𝒏 𝑷𝒓𝒐𝒄𝒆𝒔𝒔, 𝑷𝒍𝒆𝒂𝒔𝒆 𝑾𝒂𝒊𝒕 𝑨 𝑴𝒊𝒏𝒖𝒕𝒆`
+	return`	        *In process...*      `
 	}
 exports.ok = () =>{
 	return`here`
@@ -93,6 +93,7 @@ return`Hi ${pushname}, safe ${salam}
  _• ${prefix}tupai [video/vn]_
  _• ${prefix}vibra [video/vn]_
  _• ${prefix}robot [video/vn]_
+ _• ${prefix}tomp3 [reply|audio]
  _• ${prefix}slow [video/vn]_
  _• ${prefix}bass [video/vn]_
  _• ${prefix}nightcore [video/vn]_
