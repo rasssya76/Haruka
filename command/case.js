@@ -42,6 +42,7 @@ const fs = require('fs')
 const gis = require('g-i-s')
 const hx = require('hxz-api')
 const ms = require('parse-ms')
+const os = require('os')
 const moment = require('moment-timezone')
 const request = require('request')
 const speed = require('performance-now')
@@ -75,6 +76,9 @@ const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json
 autoread = false
 autocomposing = false
 autorespon = false
+baterai = {
+battery: "" || "Tidak Terdeteksi",
+isCharge: "" || false
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
@@ -340,8 +344,21 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
-                      }                        			             
-			//function
+/*                       
+                        }
+         function kyuYn(seconds) {
+	function pad(s) {
+		return (s < 10 ? '0' : '') + s;
+	}
+	var hours = Math.floor(seconds / (60 * 60));
+	var minutes = Math.floor(seconds % (60 * 60) / 60);
+	var seconds = Math.floor(seconds % 60);
+
+	//return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds)
+	return `${pad(hours)}Jam ${pad(minutes)}Menit ${pad(seconds)}Detik`
+}
+*/
+		//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
 			}
@@ -516,8 +533,47 @@ haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', durati
 break
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-			katalog('cuk Lu mau Eksrim ga 🍦🍦')
+var groups = haruka.chats.array.filter(v => v.jid.endsWith('g.us'))
+				var privat = haruka.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+					uptime = process.uptime();
+					const timestampu = speed();
+					const totalChat = await haruka.chats.all()
+					const latensi = speed() - timestampu
+					var total = math(`${groups.length} ${privat.length}`)
+					const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = haruka.user.phone
+					stamtus = `
+
+Private Chat : _${privat.length}_
+Group Chat : _${groups.length}_
+Total Chat : _${totalChat.length}_
+Speed : _${latensi.toFixed(4)} second_
+Runtime : _${kyun(uptime)}_
+Baterai : _${baterai.battery}_
+Charged : _${baterai.isCharge}_
+Penggunaan Ram : _${ram2}_
+Hostname : _${os.hostname()}_
+Platform : _${os.platform()}_
+Uptime : _${kyun(os.uptime())}_
+MNC : _${mnc}_
+MCC : _${mcc}_
+Device Model: _${haruka.user.phone.device_model}_
+Device Manufactur : _${device_manufacturer}_
+Wa Version: _${haruka.user.phone.wa_version}_
+Os Version: _${haruka.user.phone.os_version}_
+`
+katalog(stamtus)			 
 break
+      case 'runtime':
+				runtime = process.uptime()
+				katalog(`Runtime : ${waktu(runtime)}`)
+				break
+				 case 'test':
+				case 'cek':
+				case 'tes':
+				runtime = process.uptime()
+				katalog(`Nyala Bro! Runtime!\n${waktu(runtime)}`)
+				break
 case 'owner':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
 		const ownerContact = [ownernumber, "", "", "", "", "", "", "", "", "", "" , "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
