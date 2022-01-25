@@ -336,12 +336,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
                      sami = simi.success
                         haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
-                      }                        
-			for (let anju of vien){
-				if (budy === anju){
-					result = fs.readFileSync(`./media/vn/${anju}.mp3`)
-					haruka.sendMessage(from, result, audio, { mimetype: 'audio/mp4', duration: 359996400, ptt: true, quoted: ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
-					}               
+                      }                        			             
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
@@ -1066,41 +1061,7 @@ case 'bc': case 'broadcast':
                 } else {
                     katalog(mess.error.api)
                 }
-                break
-                case 'addvn':
-					if (!isOwner) return katalog(lang.owner(botname))
-					if (!isQuotedAudio) return katalog('katalog audio')
-					nm = body.slice(7)
-					if (!nm) return katalog('Nama vn nya apa?')
-					boij = JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo
-					delb = await haruka.downloadMediaMessage(boij)
-					vien.push(`${nm}`)
-					fs.writeFileSync(`./media/vn/${nm}.mp3`, delb)
-					fs.writeFileSync('./database/vien.json', JSON.stringify(vien))
-					haruka.sendMessage(from, `Sukses, silahkan cek dengan *${prefix}listvn*`, MessageType.text, { quoted: ftroli })
-					break
-					case 'delvn':
-					if (!isOwner) return katalog(lang.owner(botname))
-					try {
-					 nmm = body.slice(7)
-					 wanu = vien.indexOf(nmm)
-					 vien.splice(wanu, 1)
-					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
-					reply(`Sukses menghapus vn ${body.slice(7)}`)
-					} catch (e){
-						console.log(e)
-						reply('error')
-					}	
-					break				
-				case 'listvn':
-		     		if (!isOwner) return katalog(lang.owner(botname))
-					teks = '*VN List :*\n\n'
-					for (let awokwkwk of vien) {
-						teks += `- ${awokwkwk}\n`
-					}
-					teks += `\n*Total : ${vien.length}*\n\n_Untuk mengambil vn silahkan katalog pesan ini dengan caption nama vn_`
-					haruka.sendMessage(from, teks.trim(), extendedText, { quoted: ftroli, contextInfo: { "mentionedJid": vien } })
-					break
+                break            
 //covert              
                 case 'nightcore':{
 	                 if (!isQuotedAudio) return katalog('katalog audio nya om')
