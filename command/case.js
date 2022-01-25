@@ -1091,8 +1091,7 @@ case 'bc': case 'broadcast':
 								reply('Error!')
 									}  
 							}	
-					break
-				case 'vnlist':
+					break				
 				case 'listvn':
 		     		if (!isOwner) return katalog(lang.owner(botname))
 					teks = '*VN List :*\n\n'
