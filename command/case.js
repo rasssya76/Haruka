@@ -1086,11 +1086,11 @@ case 'bc': case 'broadcast':
 					 wanu = vien.indexOf(nmm)
 					 vien.splice(wanu, 1)
 					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
-					katalog(`Sukses menghapus vn ${body.slice(7)}`)			
-					} catch (e) {
-								reply('Error!')
-									}  
-							}	
+					reply(`Sukses menghapus vn ${body.slice(7)}`)
+					} catch (e){
+						console.log(e)
+						reply('error')
+					}	
 					break				
 				case 'listvn':
 		     		if (!isOwner) return katalog(lang.owner(botname))
