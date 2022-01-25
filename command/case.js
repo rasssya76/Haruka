@@ -1087,7 +1087,7 @@ case 'bc': case 'broadcast':
 					 vien.splice(wanu, 1)
 					 fs.unlinkSync(`./media/vn/${nmm}.mp3`)
 					katalog(`Sukses menghapus vn ${body.slice(7)}`)
-					} catch (err){
+					} catch (e){
 						console.log(e)
 						katalog(mess.error.api)
 					}
