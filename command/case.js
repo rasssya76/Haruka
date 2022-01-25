@@ -76,10 +76,6 @@ const tebakgambar = JSON.parse(fs.readFileSync('./database/game/tebakgambar.json
 autoread = false
 autocomposing = false
 autorespon = false
-baterai = {
-battery: "" || "Tidak Terdeteksi",
-isCharge: "" || false
-}
 //settings
 const setting = JSON.parse(fs.readFileSync('./settings/config.json'))
 let {
