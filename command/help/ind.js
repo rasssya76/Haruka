@@ -82,6 +82,7 @@ return`Hi ${pushname}, safe ${salam}
  _• ${prefix}tiktokaudio [url]_
  _• ${prefix}soundcloud [url]_
  _• ${prefix}telesticker [url]_
+ _• ${prefix}mediafire [url]_
 
  *Convert*
  _• ${prefix}stiker [video/image]_
