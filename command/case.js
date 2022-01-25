@@ -58,6 +58,9 @@ const { color, bgcolor } = require('../lib/color')
 const { yta, ytv} = require('../lib/y2mate')
 const { lirikLagu } = require('../lib/lirik')
 const { wikiSearch } = require('../lib/wiki')
+const { herolist } = require('../lib/herolist')
+const { herodetails } = require('../lib/herodetail')
+const { mediafireDl } = require('../lib/mediafire')
 const simple = require('../lib/simple')
 const { uploadImages } = require('../lib/uploadimage')
 
@@ -750,14 +753,11 @@ sendButLocation(from, captions, '© ' + ownername, thumbyt, [{buttonId: `.ytmp4 
               
 //serach                     
              case 'lirik':
-if (args.length < 1) return reply('Judulnya?')
-katalog(lang.wait())
-teks = body.slice(7)
-lirikLagu(teks).then((res) => {
-let lirik = `${res[0].result}`
-katalog(lirik)
-})
-break
+				if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
+				katalog(lang.wait())
+				if (!q) return katalog('Masukkan query')
+            	sendMediaURL(from, `https://hardianto.xyz/api/info/lirik?query=${arg}&apikey=hardianto`)
+				break
 
 case 'wiki':
 if (args.length < 1) return reply(' Yang Mau Di Cari Apa? ')
@@ -771,6 +771,62 @@ sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => 
   reply(result)
 })
 break
+case 'mediafire':
+if (args.length < 1) return reply('Link Nya Mana? ')
+if(!isUrl(args[0]) && !args[0].includes('mediafire')) return reply(mess.error.api)
+if (Number(filesize) >= 30000) return reply(`*Nama :* ${res[0].nama}
+*Ukuran :* ${res[0].size}
+*Link :* ${res[0].link}
+
+_Maaf size melebihi batas maksimal, Silahkan klik link diatas_`)
+reply(mess.wait)
+teks = args.join(' ')
+res = await mediafireDl(teks)
+result = `*Nama :* ${res[0].nama}
+*Ukuran :* ${res[0].size}
+
+_File sedang dikirim, Silahkan tunggu beberapa menit_`
+reply(result)
+sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: mek})
+breakcase 'herolist':
+await herolist().then((ress) => {
+let listt = `*List hero untuk feature ${prefix}herodetail*\n\n`
+for (var i = 0; i < ress.hero.length; i++) {
+listt += '-  ' + ress.hero[i] + '\n'
+}
+katalog(listt)
+})
+break
+case 'herodetail':
+res = await herodetails(body.slice(12))
+her = `*Hero Details ${body.slice(12)}*
+
+*Nama* : ${res.hero_name}
+*Role* : ${res.role}
+*Quotes* : ${res.entrance_quotes}
+*Fitur Hero* : ${res.hero_feature}
+*Spesial* : ${res.speciality}
+*Rekomendasi Lane* : ${res.laning_recommendation}
+*Harga* : ${res.price.battle_point} [Battle point] | ${res.price.diamond} [DM] | ${res.price.hero_fragment} [Fragment]
+*Rilis* : ${res.release_date}
+
+*Durability* : ${res.skill.durability}
+*Offence* : ${res.skill.offense}
+*Skill Effect* : ${res.skill_effects}
+*Difficulty* : ${res.skill.difficulty}
+ 
+*Movement Speed* : ${res.attributes.movement_speed}
+*Physical Attack* : ${res.attributes.physical_attack}
+*Magic Defense* : ${res.attributes.magic_defense}
+*Ability Crit Rate* : ${res.attributes.ability_crit_rate}
+*HP* : ${res.attributes.hp}
+*Mana* : ${res.attributes.mana}
+*Mana Regen* : ${res.attributes.mana_regen}
+
+*Story* : ${res.background_story}`
+katalog(her)
+break
+//convert
 case 'tomp3':
 					haruka.updatePresence(from, Presence.composing)
 					if (!isQuotedVideo) return reply('Reply Video Nya Kak')
@@ -823,7 +879,7 @@ case 'memegenerator': case 'memegen':{
 									if (args.length < 1) return katalog(`Kirim perintah *${prefix + command}* teks atas|teks bawah`)
 									if (!q.includes('|')) return katalog(`Kirim perintah *${prefix + command}* teks atas|teks bawah`)
 									try {
-										if (!isQuotedImage) return katalog(`katalog Gambar!`)
+										if (!isQuotedImage) return katalog(`reply gambar!`)
 										katalog(lang.wait())
 										var teks1 = q.split('|')[0] ? q.split('|')[0] : ''
 										var teks2 = q.split('|')[1] ? q.split('|')[1] : ''
@@ -843,7 +899,7 @@ case 'memegenerator': case 'memegen':{
 						if (args.length < 1) return katalog(`Kirim perintah *${prefix + command}* R-bot`)
 									if (q.includes('|')) return katalog(`Kirim perintah *${prefix + command}* R-bot`)
 									try {
-										if (!isQuotedImage) return katalog(`katalog Gambar!`)
+										if (!isQuotedImage) return katalog(`reply gambar!`)
 										katalog(lang.wait())
 										var teks2 = args.join(' ')
 										var enmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
@@ -1106,7 +1162,7 @@ case 'bc': case 'broadcast':
             res = await upload(owgi)
             katalog(res)
             } else {
-            katalog('kirim/katalog gambar/video')
+            katalog('kirim/reply gambar/video')
             }
             break			             
 case 'bass': {
