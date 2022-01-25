@@ -54,9 +54,10 @@ const zee = require('api-alphabot')
 //library
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('../lib/functions')
 const { fetchJson, kyun, fetchText } = require('../lib/fetcher')
-const { mediafireDl } = require('./lib/mediafire.js')
 const { color, bgcolor } = require('../lib/color')
 const { yta, ytv} = require('../lib/y2mate')
+const { lirikLagu } = require('./lib/lirik.js')
+const { wikiSearch } = require('./lib/wiki.js')
 const simple = require('../lib/simple')
 const { uploadImages } = require('../lib/uploadimage')
 
@@ -745,25 +746,32 @@ sendButLocation(from, captions, '© ' + ownername, thumbyt, [{buttonId: `.ytmp4 
 					katalog('Terjadi kesalahan')
 					}
 			
-             break
-             case 'mediafire':
-if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Click the button to verify`, [{buttonId: '.daftar',buttonText: {displayText: ` ʀᴇɢɪsᴛᴇʀ`,},type: 1,}], {quoted: fgif});
-if (args.length === 0) return katalog(`Kirim perintah *${prefix}mediafire* _link_`)
-if (Number(filesize) >= 30000) return reply(`*Nama :* ${res[0].nama}
-*Ukuran :* ${res[0].size}
-*Link :* ${res[0].link}
-
-_Maaf size melebihi batas maksimal, Silahkan klik link diatas_`)
+             break 
+              
+//serach                     
+             case 'lirik':
+if (args.length < 1) return reply('Judulnya?')
 reply(mess.wait)
-teks = args.join(' ')
-res = await mediafireDl(teks)
-result = `*Nama :* ${res[0].nama}
-*Ukuran :* ${res[0].size}
+teks = body.slice(7)
+lirikLagu(teks).then((res) => {
+let lirik = `${res[0].result}`
+reply(lirik)
+})
+break
 
-_File sedang dikirim, Silahkan tunggu beberapa menit_`
-reply(result)
-sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: ftroli})
+case 'wiki':
+if (args.length < 1) return reply(' Yang Mau Di Cari Apa? ')
+teks = args.join(' ')
+res = await wikiSearch(teks).catch(e => {
+return reply('_[ ! ] Error Hasil Tidak Ditemukan_') 
+}) 
+result = `*Judul :* ${res[0].judul}
+*Wiki :* ${res[0].wiki}`
+sendFileFromUrl(res[0].thumb, image, {quoted: mek, caption: result}).catch(e => {
+  reply(result)
+})
 break
+    
 //group
 case 'daftar': case 'verify': case 'register':
 			if (isHaruka) return  katalog(lang.regis())
