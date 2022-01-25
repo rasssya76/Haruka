@@ -56,8 +56,8 @@ const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRando
 const { fetchJson, kyun, fetchText } = require('../lib/fetcher')
 const { color, bgcolor } = require('../lib/color')
 const { yta, ytv} = require('../lib/y2mate')
-const { lirikLagu } = require('./lib/lirik')
-const { wikiSearch } = require('./lib/wiki')
+const { lirikLagu } = require('../lib/lirik')
+const { wikiSearch } = require('../lib/wiki')
 const simple = require('../lib/simple')
 const { uploadImages } = require('../lib/uploadimage')
 
