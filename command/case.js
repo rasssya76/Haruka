@@ -39,6 +39,8 @@ const fetch = require('node-fetch');
 const ffmpeg = require('fluent-ffmpeg') 
 const figlet = require('figlet')
 const fs = require('fs')
+const os = require('os')
+const Math_js = require('mathjs')
 const gis = require('g-i-s')
 const hx = require('hxz-api')
 const ms = require('parse-ms')
@@ -470,8 +472,7 @@ simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
 						headerType: 4
 						}
 					haruka.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-				}
-					}			
+				}				
 				// antilink
                 if (manti.includes("://chat.whatsapp.com/")){
 		        if (!isGroup) return
