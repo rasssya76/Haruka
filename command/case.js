@@ -328,7 +328,17 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 					fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
 					}
 				}
-						
+				if (autoread) {
+                haruka.chatRead(from)
+                }	
+                if (autocomposing) {
+                haruka.updatePresence(from, Presence.composing)
+                }	
+                if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
+simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
+                     sami = simi.success
+                        haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
+			
 			//function
 			const reply = (teks) => {
 				haruka.sendMessage(from, teks, text, { quoted: mek, thumbnail: thumbnail})
@@ -461,18 +471,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						}
 					haruka.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 				}
-					}
-				if (autoread) {
-                haruka.chatRead(from)
-                }	
-                if (autocomposing) {
-                haruka.updatePresence(from, Presence.composing)
-                }	
-                if (!isGroup && !isCmd && !command && !mek.key.fromMe && autorespon) {
-simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=ID`)
-                     sami = simi.success
-                        haruka.sendMessage(from, `${sami}`, text, {thumbnail: thumbnail, sendEphemeral: true, quoted:mek})
-	
+					}			
 				// antilink
                 if (manti.includes("://chat.whatsapp.com/")){
 		        if (!isGroup) return
@@ -516,7 +515,36 @@ haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', durati
 break
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-			katalog('Update bot selanjutnya silahkan cek YouTube zeeone ofc')
+var groups = haruka.chats.array.filter(v => v.jid.endsWith('g.us'))
+				var privat = haruka.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
+				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+					uptime = process.uptime();
+					const timestampu = speed();
+					const totalChat = await haruka.chats.all()
+					const latensi = speed() - timestampu
+					var total = math(`${groups.length} ${privat.length}`)
+					const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = haruka.user.phone
+					stamtus = `⍟ ────────────────── ⍟
+
+Private Chat : ${privat.length}
+Group Chat : ${groups.length}
+Total Chat : ${totalChat.length}
+Speed : ${latensi.toFixed(4)} second
+Runtime : ${kyun(uptime)}
+Baterai : ${baterai.battery}
+Charged : ${baterai.isCharge}
+Penggunaan Ram : ${ram2}
+Hostname : ${os.hostname()}
+Platform : ${os.platform()}
+Uptime : ${kyun(os.uptime())}
+MNC : ${mnc}
+MCC : ${mcc}
+Device Model: ${haruka.user.phone.device_model}
+Device Manufactur : ${device_manufacturer}
+Wa Version: ${haruka.user.phone.wa_version}
+Os Version: ${haruka.user.phone.os_version}
+`
+katalog(stamtus)
 break
 case 'owner':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
