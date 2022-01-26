@@ -210,8 +210,7 @@ const salam = moment(Date.now()).tz('Asia/Jakarta').locale('id').format('a')
 						const args = body.trim().split(/ +/).slice(1)
 						const q = args.join(' ')
 						const runtime = process.uptime()   
-						const isCmd = body.startsWith(prefix)
-						const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = haruka.user.phone
+						const isCmd = body.startsWith(prefix)						 
 						const botNumber = haruka.user.jid
 						const ownerNumber = [`${ownernumber}@s.whatsapp.net`] 
 						const isGroup = from.endsWith('@g.us')
@@ -516,36 +515,7 @@ haruka.sendMessage(from, lima, MessageType.audio, {mimetype: 'audio/mp4', durati
 break
 case 'infobot':
 if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
-var groups = haruka.chats.array.filter(v => v.jid.endsWith('g.us'))
-				var privat = haruka.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
-				var ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
-					uptime = process.uptime();
-					const timestampu = speed();
-					const totalChat = await haruka.chats.all()
-					const latensi = speed() - timestampu
-					var total = math(`${groups.length} ${privat.length}`)
-					const { wa_version, mcc, mnc, os_version, device_manufacturer, device_model } = haruka.user.phone
-					stamtus = `⍟ ────────────────── ⍟
-
-Private Chat : ${privat.length}
-Group Chat : ${groups.length}
-Total Chat : ${totalChat.length}
-Speed : ${latensi.toFixed(4)} second
-Runtime : ${kyun(uptime)}
-Baterai : ${baterai.battery}
-Charged : ${baterai.isCharge}
-Penggunaan Ram : ${ram2}
-Hostname : ${os.hostname()}
-Platform : ${os.platform()}
-Uptime : ${kyun(os.uptime())}
-MNC : ${mnc}
-MCC : ${mcc}
-Device Model: ${haruka.user.phone.device_model}
-Device Manufactur : ${device_manufacturer}
-Wa Version: ${haruka.user.phone.wa_version}
-Os Version: ${haruka.user.phone.os_version}
-`
-katalog(stamtus)
+katalog('halo')
 break
 case 'owner':{
 	if (!isHaruka) return sendButMessage(from, lang.noregis(pushname), `Klik Button Untuk Verify`, [{buttonId: '.daftar',buttonText: {displayText: `Daftar`,},type: 1,}], {quoted: fgif});
