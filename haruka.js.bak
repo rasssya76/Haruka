@@ -29,7 +29,7 @@ const starts = async (rama = new WAConnection()) => {
     rama.logger.level = 'warn'
     rama.version = [2, 2143, 3]
     rama.browserDescription = [ 'rama-Bot', 'Chrome', '3.0' ]
-	CFonts.say('R-BOT', {
+	CFonts.say('rama', {
 		font: 'block',
     	color: ['#ff9c00'],
     	align: 'center',
